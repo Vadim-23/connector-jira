@@ -11,7 +11,7 @@
         <field name="model">jira.backend</field>
         <field name="arch" type="xml">
             <form string="Jira Backend">
-                <header groups="connector.group_connector_manager">
+                <header>
                     <button
                         name="button_setup"
                         type="object"
@@ -38,18 +38,18 @@
                         string="Reset Authentication"
                         states="setup,running"
                     />
-                    <field name="state" widget="statusbar" />
+                    <field name="state" widget="statusbar"/>
                 </header>
                 <sheet>
-                    <label for="name" class="oe_edit_only" />
+                    <label for="name" class="oe_edit_only"/>
                     <h1>
-                        <field name="name" class="oe_inline" />
+                        <field name="name" class="oe_inline"/>
                     </h1>
                     <p class="oe_grey oe_inline" states="setup">
                         Once you have checked the configuration and
-            activated the webhooks and the Epic Link (if
-            wanted), click on the "Configuration Done"
-            button.
+                        activated the webhooks and the Epic Link (if
+                        wanted), click on the "Configuration Done"
+                        button.
                     </p>
                     <group>
                         <group
@@ -61,12 +61,12 @@
                                 name="uri"
                                 placeholder="e.g. https://example.com/jira"
                             />
-                            <field name="verify_ssl" />
+                            <field name="verify_ssl"/>
                         </group>
                         <group name="main_configuration" string="Main Configuration">
-                            <field name="company_id" />
-                            <field name="worklog_fallback_project_id" />
-                            <field name="project_template" />
+                            <field name="company_id"/>
+                            <field name="worklog_fallback_project_id"/>
+                            <field name="project_template"/>
                             <field
                                 name="project_template_shared"
                                 attrs="{'invisible': [('project_template', '!=', 'shared')],
@@ -78,21 +78,21 @@
                         <page name="import" string="Imports" states="running">
                             <p class="oe_grey oe_inline">
                                 By clicking on the buttons,
-                you will initiate the synchronizations
-                with Jira.
-                Note that the import or exports
-                won't be done directly,
-                they will create 'Jobs'
-                executed as soon as possible.
+                                you will initiate the synchronizations
+                                with Jira.
+                                Note that the import or exports
+                                won't be done directly,
+                                they will create 'Jobs'
+                                executed as soon as possible.
                             </p>
                             <p class="oe_grey oe_inline">
                                 Once imported,
-                some types of records,
-                like the products or categories,
-                need a manual review.
-                You will find the list
-                of the new records to review
-                in the menu 'Connectors > Checkpoint'.
+                                some types of records,
+                                like the products or categories,
+                                need a manual review.
+                                You will find the list
+                                of the new records to review
+                                in the menu 'Connectors > Checkpoint'.
                             </p>
                             <group>
                                 <div>
@@ -113,7 +113,7 @@
                                     role="alert"
                                     attrs="{'invisible': [('report_user_sync', '=', False)]}"
                                 >
-                                    <field name="report_user_sync" />
+                                    <field name="report_user_sync"/>
                                 </div>
                             </group>
                             <group>
@@ -226,8 +226,8 @@
                         >
                             <group name="webhooks" col="6">
                                 <group name="webhook_fields" colspan="3">
-                                    <field name="use_webhooks" invisible="1" />
-                                    <field name="odoo_webhook_base_url" />
+                                    <field name="use_webhooks" invisible="1"/>
+                                    <field name="odoo_webhook_base_url"/>
                                 </group>
                                 <div>
                                     <button
@@ -248,16 +248,16 @@
                                 <p class="oe_grey" colspan="2">
                                     Webhooks can be created only on one instance of
                                     JIRA.
-                  When webhooks are activated, each
-                  modification of tasks and worklogs are
-                  directly transmitted to Odoo.
+                                    When webhooks are activated, each
+                                    modification of tasks and worklogs are
+                                    directly transmitted to Odoo.
                                 </p>
                             </group>
                             <group name="epic" col="6">
                                 <group name="epic_fields" colspan="3">
-                                    <field name="epic_link_field_name" />
-                                    <field name="epic_name_field_name" />
-                                    <field name="epic_link_on_epic" />
+                                    <field name="epic_link_field_name"/>
+                                    <field name="epic_name_field_name"/>
+                                    <field name="epic_link_on_epic"/>
                                 </group>
                                 <div>
                                     <button
@@ -270,11 +270,11 @@
                                 </div>
                                 <p class="oe_grey" colspan="2">
                                     Activate the synchronization of the Epic Link field.
-                  Only on JIRA Software. The field contains the name of
-                  the JIRA custom field that contains the Epic Link.
+                                    Only on JIRA Software. The field contains the name of
+                                    the JIRA custom field that contains the Epic Link.
 
-                  Note that if a project does not synchronize the Epics,
-                  the field will be empty.
+                                    Note that if a project does not synchronize the Epics,
+                                    the field will be empty.
                                 </p>
                             </group>
                             <group name="worklog" col="6">
@@ -289,7 +289,7 @@
                                         string=""
                                     />
                                 </group>
-                                <div />
+                                <div/>
                                 <p class="oe_grey" colspan="2">
                                     Configure worklog fields
                                 </p>
@@ -298,8 +298,8 @@
                         <page name="issue_type" string="Issue Types" states="running">
                             <field name="issue_type_ids">
                                 <tree create="0" delete="0" edit="0">
-                                    <field name="name" />
-                                    <field name="description" />
+                                    <field name="name"/>
+                                    <field name="description"/>
                                 </tree>
                                 <form
                                     string="Jira Issue Type"
@@ -308,8 +308,8 @@
                                     edit="0"
                                 >
                                     <group>
-                                        <field name="name" />
-                                        <field name="description" />
+                                        <field name="name"/>
+                                        <field name="description"/>
                                     </group>
                                 </form>
                             </field>
@@ -324,8 +324,8 @@
         <field name="model">jira.backend</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="name" />
-                <field name="uri" />
+                <field name="name"/>
+                <field name="uri"/>
             </tree>
         </field>
     </record>
